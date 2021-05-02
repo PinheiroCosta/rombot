@@ -1,7 +1,6 @@
 import os
 import discord
 from discord.ext import commands
-from keep_alive import keep_alive
 from time import sleep
 
 
@@ -15,6 +14,7 @@ bot = commands.Bot(
 
 intents = discord.Intents.default()
 intents.members = True
+
 
 @bot.event
 async def on_ready():
@@ -41,28 +41,33 @@ async def on_message(message):
 @bot.command()
 async def id(ctx, member: discord.Member):
   """[@membro] Diz o ID de uma pessoa"""
+
   await ctx.channel.send(f"O id de {member} é: {member.id}")
 
 @bot.command()
 async def get_status(ctx, member: discord.Member):
   """[@membro] Diz o que a pessoa está fazendo"""
+
   game = member.activities[0]
   await ctx.channel.send(f"{member.name} está jogando {game}")
 
 @bot.command()
 async def bot_gameplay(ctx, *, act):
   """[nome do jogo] Muda a atividade do bot"""
+
   await bot.change_presence(activity=discord.Game(name=act))
   
 @bot.command()
 async def ch_transfer(ctx, member: discord.Member, channel: discord.VoiceChannel, reason=None):
   """[@membro] [canal] Transfere a pessoa para outro canal"""
+
   await member.move_to(channel, reason=None)
   await ctx.channel.send(f"{member} foi para o canal {channel}")
 
 @bot.command()
 async def cls(ctx, limit=100):
   """[número](opcional) Limpa mensagens do canal atual"""
+
   await ctx.channel.send(f"Deletando mensagens do canal {ctx.channel}...")
   sleep(3)
   await ctx.channel.purge(limit=limit)
@@ -71,6 +76,7 @@ async def cls(ctx, limit=100):
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, member: discord.Member, *, reason="eu quis"):
   """[@membro] [motivo](opcional) chuta pessoa do servidor"""
+
   if member.id == "264822085623349248":
     await ctx.channel.send("O quêêêêê? você quer que eu expulse meu próprio criador daqui?\n https://tenor.com/3vIV.gif")
   else:
@@ -86,6 +92,7 @@ async def info_error(ctx, error):
 @commands.has_permissions(manage_nicknames=True)
 async def nick_edit(ctx, member: discord.Member, nick):
   """[@membro] [Apelido] Altera o apelido da pessoa"""
+
   await member.edit(reason=None, nick=nick)
   await ctx.channel.send(f"O nick de {member.name} foi alterado para {nick}")
 
@@ -97,6 +104,7 @@ async def info_error(ctx, error):
 @bot.command()
 async def mute(ctx, member: discord.Member):
   """[@membro] Silencia a pessoa"""
+
   await member.edit(reason=None, mute=1)
   await ctx.channel.send(f"{member.name} foi silenciado(a)")
 
@@ -104,9 +112,9 @@ async def mute(ctx, member: discord.Member):
 @bot.command()
 async def unmute(ctx, member: discord.Member):
   """[@membro] devolve a voz da pessoa"""
+
   await member.edit(reason=None, mute=0)
   await ctx.channel.send(f"{member.name} já pode falar novamente")
 
 
-keep_alive()
 bot.run(os.getenv('TOKEN'))
