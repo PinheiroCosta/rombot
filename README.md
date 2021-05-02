@@ -1,0 +1,2 @@
+# rombot
+a discord bot
