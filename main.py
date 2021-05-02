@@ -6,7 +6,7 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-  print(f"Nós logamos como {client.user}")
+  print(f"Logado como {client.user}")
 
 
 @client.event
