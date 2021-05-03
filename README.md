@@ -4,7 +4,7 @@
 
 # rombot
 
-Os comandos devem ser precedidos pelo caractere '?' e alguns deles aceitam [parâmetros] - sem chaves - opcionais.
+Os comandos devem ser precedidos pelo caractere '>'. Os [parâmetros] que possuírem um asterístico são obrigatórios.
 
 |Commandos|Descrição|
 |:--|:--|
