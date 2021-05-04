@@ -8,9 +8,7 @@ help_command = commands.DefaultHelpCommand(
 
 bot = commands.Bot(
   command_prefix='>',
-  description=f"Os comandos devem ser precedidos pelo caractere '>'.",
-                  "Os [parâmetros] que possuírem um asterístico são obrigatórios.",
-                  "Desenvolvido por Rômulo - https://github.com/PinheiroCosta",
+  description=f"Os comandos devem ser precedidos pelo caractere '>'. Os [parâmetros] que possuírem um asterístico são obrigatórios. Desenvolvido por Rômulo - https://github.com/PinheiroCosta",
   help_command=help_command)
 
 # Comandos de Informação
@@ -47,20 +45,17 @@ async def clear(ctx, limit=100):
   deleted = await ctx.channel.purge(limit=limit, check=if_not_pinned)  
   await ctx.channel.send(f"{len(deleted)} mensagens foram excluídas", delete_after=3)
 
-@bot.command()
+@bot.command(name='kick', aliases=['Kick'])
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, member: discord.Member, *, reason="eu quis"):
   """[@membro]* [motivo] chuta pessoa do servidor"""
-  if member.id == "264822085623349248":
-    await ctx.channel.send("O quêêêêê? você quer que eu expulse meu próprio criador daqui?\n https://tenor.com/3vIV.gif")
-  else:
-    await member.kick(reason=reason)
-    await ctx.channel.send(f"{member} não está mais no servidor porque {reason}")
+  await member.kick(reason=reason)
+  await ctx.channel.send(f"{member} não está mais no servidor porque {reason}")
 
 @kick.error
 async def info_error(ctx, error):
     if isinstance(error, commands.CommandInvokeError):
-      await ctx.channel.send(f"Não foi possível expulsar essa pessoa. Não temos permissão para isso")
+      await ctx.channel.send(f"Não foi possível expulsar essa pessoa. Talvez ela esteja numa hierarquia acima de mim?")
 
 @bot.command()
 async def nick_edit(ctx, member: discord.Member, nick):
