@@ -14,13 +14,22 @@ class Ai:
 
     # retorna mensagem caso seja mencionado
     if str(bot.user.id) in msg:
-      help = ["ajuda", "ajudar", "socorro", "ajude"]
       greeting = ["Oi", "Olá", "Falae" ]
+      ordem = msg.split()[1]
+      enunciado = msg.split()[2:]
+      hello = f"{random.choice(greeting)} {autor.name}, Como posso te ajudar? Converse comigo na forma imperativa, ou digite {bot.command_prefix}help para saber quais comandos posso executar"
       
-      if any(word in msg for word in help):
-        await message.channel.send(f"{random.choice(greeting)} {autor.name},",
-                                        "Como posso te ajudar? Converse comigo na forma imperativa,",
-                                        "ou digite {bot.command_prefix}help para saber quais comandos posso executar")
-        
-      else:
-        await message.channel.send(f"Opa! Alguém aí me chamou?")
+      try:
+        if ordem == "some":
+          resultado = [int(termo) for termo in enunciado if termo.isnumeric()]
+          resposta = f"O resultado dessa soma é {sum(resultado)}"
+          await message.channel.send(resposta)
+
+        elif ordem == "liste":
+          await message.channel.send(enunciado)
+
+        elif ordem == "imprima":
+          await message.channel.send(" ".join(enunciado))
+
+      except IndexError:
+        await message.channel.send(hello)
