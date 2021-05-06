@@ -1,3 +1,6 @@
+import re
+
+
 # Matemática
 def soma_lista(termos):
   """Soma todos os itens numéricos da lista de termos"""
@@ -7,8 +10,6 @@ def soma_lista(termos):
 
 # Gerenciamento
 def enquete(termos):
-  import re
-
   """Cria uma enquete binária a partir da lista de termos"""
   frase = " ".join(termos)
   # pega o índice de '?'
