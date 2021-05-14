@@ -14,6 +14,8 @@ Os comandos devem ser precedidos pelo caractere '>'. Os [parâmetros] que possu�
 |>get_status [@membro]|Diz o que a pessoa está fazendo|
 |>help|Shows this message|
 |>id [@membro]|Diz o ID de uma pessoa|
+|>kick [@membro]* [motivo]|chuta pessoa do servidor|
 |>mute [@membro]|Silencia a pessoa|
 |>nick_edit [@membro] [Apelido]|Altera o apelido da pessoa|
+|>purge [número]*|Limpa mensagens do canal atual|
 |>unmute [@membro]|devolve a voz da pessoa|
