@@ -91,9 +91,4 @@ async def unmute(ctx, member: discord.Member):
   await member.edit(reason=None, mute=0)
   await ctx.channel.send(f"{member.name} já pode falar novamente")
 
-"""
-@bot.command()
-async def ytsearch(ctx, query: str):
-    youtube = build("youtube", "v3", developerKey=os.getenv("YOUTUBE_TOKEN"))
-    search_response = youtube.search().list(q=query, part="snippet", maxResults=5).execute()
-    await ctx.channel.send(search_response) # It will send the data in a .json format."""
+
