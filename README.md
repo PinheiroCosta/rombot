@@ -19,3 +19,7 @@ Os comandos devem ser precedidos pelo caractere '>'. Os [parâmetros] que possu�
 |>nick_edit [@membro] [Apelido]|Altera o apelido da pessoa|
 |>purge [número]*|Limpa mensagens do canal atual|
 |>unmute [@membro]|devolve a voz da pessoa|
+
+
+## Documentation on discord.py bot
+- https://discordpy.readthedocs.io/en/latest/api.html
