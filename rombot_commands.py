@@ -92,3 +92,15 @@ async def unmute(ctx, member: discord.Member):
   await ctx.channel.send(f"{member.name} já pode falar novamente")
 
 
+@bot.command()
+async def clone(ctx, member: discord.Member):
+  """[@membro]* Clona o nome de um membro"""
+  await ctx.guild.me.edit(nick=member.name) 
+  await ctx.channel.send(f"{member.name} foi clonado!")
+
+"""
+@bot.command()
+async def ytsearch(ctx, query: str):
+    youtube = build("youtube", "v3", developerKey=os.getenv("YOUTUBE_TOKEN"))
+    search_response = youtube.search().list(q=query, part="snippet", maxResults=5).execute()
+    await ctx.channel.send(search_response) # It will send the data in a .json format."""
