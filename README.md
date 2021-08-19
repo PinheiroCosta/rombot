@@ -12,7 +12,7 @@ Os comandos devem ser precedidos pelo caractere '>'. Os [parâmetros] que possu�
 |>ch_transfer [@membro] [canal]|Transfere a pessoa para outro canal|
 |>clear [número] (opcional)|Limpa mensagens do canal atual|
 |>get_status [@membro]|Diz o que a pessoa está fazendo|
-|>help|Shows this message|
+|>help|Mostra esta mensagem de ajuda|
 |>id [@membro]|Diz o ID de uma pessoa|
 |>kick [@membro]* [motivo]|chuta pessoa do servidor|
 |>mute [@membro]|Silencia a pessoa|
@@ -21,5 +21,5 @@ Os comandos devem ser precedidos pelo caractere '>'. Os [parâmetros] que possu�
 |>unmute [@membro]|devolve a voz da pessoa|
 
 
-## Documentation on discord.py bot
+## Documentação do discord.py
 - https://discordpy.readthedocs.io/en/latest/api.html
