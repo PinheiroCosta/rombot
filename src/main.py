@@ -9,9 +9,10 @@ intents.members = True
 
 speech = Ai()
 
+
 @bot.event
 async def on_ready():
-  print(f"logado como {bot.user}")
+    print(f"logado como {bot.user}")
 
 
 bot.run(os.getenv('TOKEN'))
