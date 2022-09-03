@@ -9,7 +9,7 @@ def soma_lista(termos):
 
 
 # Gerenciamento
-def enquete(termos):
+def enquete(conjunto):
   """Cria uma enquete binária a partir da lista de termos"""
   frase = " ".join(termos)
   # pega o índice de '?'
