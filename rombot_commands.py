@@ -9,7 +9,7 @@ help_command = commands.DefaultHelpCommand(
 
 bot = commands.Bot(
   command_prefix='>',
-  description=f"Os comandos devem ser precedidos pelo caractere '>'. Os [parâmetros] que possuírem um asterístico são obrigatórios. Desenvolvido por Rômulo - https://github.com/PinheiroCosta",
+  description=f"Os comandos devem ser precedidos pelo caractere '>'. Os [parâmetros] que possuírem um asterístico são obrigatórios.",
   help_command=help_command)
 
 # Comandos de Informação
@@ -95,10 +95,3 @@ async def clone(ctx, member: discord.Member):
   """[@membro]* Clona o nome de um membro"""
   await ctx.guild.me.edit(nick=member.name) 
   await ctx.channel.send(f"{member.name} foi clonado!")
-
-"""
-@bot.command()
-async def ytsearch(ctx, query: str):
-    youtube = build("youtube", "v3", developerKey=os.getenv("YOUTUBE_TOKEN"))
-    search_response = youtube.search().list(q=query, part="snippet", maxResults=5).execute()
-    await ctx.channel.send(search_response) # It will send the data in a .json format."""
